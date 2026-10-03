@@ -1,451 +1,902 @@
-"use client";
-
 import {
   ArrowRight,
+  Play,
+  Sparkles,
   Brain,
+  GraduationCap,
+  Users,
+  TrendingUp,
+  ShieldCheck,
   CheckCircle2,
   ChevronRight,
-  CircleDollarSign,
-  Menu,
-  Play,
-  ShieldCheck,
-  Sparkles,
-  Users,
-  X,
+  Star,
   Zap,
+  Globe2,
+  CreditCard,
+  BarChart3,
 } from "lucide-react";
-import { useState } from "react";
-import Hero3D from "./components/Hero3D";
-
-const courses = [
-  {
-    title: "AI Mastery",
-    description:
-      "Learn practical AI tools and workflows from beginner to advanced.",
-    icon: Brain,
-    tag: "Most Popular",
-  },
-  {
-    title: "AI Content Creation",
-    description:
-      "Create professional content, graphics and videos using AI.",
-    icon: Sparkles,
-    tag: "Trending",
-  },
-  {
-    title: "AI Earning Skills",
-    description:
-      "Learn digital skills that can be used to build online income streams.",
-    icon: CircleDollarSign,
-    tag: "New",
-  },
-];
-
-const features = [
-  "Premium AI skill courses",
-  "Practical projects and assignments",
-  "Personal learner dashboard",
-  "Affiliate earning dashboard",
-  "Digital membership card",
-  "AI-powered learning community",
-];
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
-    <main className="min-h-screen overflow-hidden bg-white text-slate-950">
-      {/* NAVBAR */}
-      <nav className="fixed left-0 right-0 top-0 z-50 border-b border-slate-200/70 bg-white/90 backdrop-blur-xl">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
-          <a href="#home" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-400 text-lg font-black text-white shadow-lg">
-              LX
-            </div>
+    <main className="site">
+      <style jsx global>{`
+        * {
+          box-sizing: border-box;
+        }
 
-            <div>
-              <div className="text-xl font-black tracking-tight">
-                Learnwealth<span className="text-blue-600">x</span>
-              </div>
+        html {
+          scroll-behavior: smooth;
+        }
 
-              <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">
-                Learn • Grow • Earn
-              </div>
-            </div>
-          </a>
+        body {
+          margin: 0;
+          background: #f7f9fc;
+          color: #07152f;
+          font-family:
+            Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+            "Segoe UI", sans-serif;
+        }
 
-          <div className="hidden items-center gap-8 md:flex">
-            <a
-              href="#home"
-              className="text-sm font-semibold text-slate-700 hover:text-blue-600"
-            >
-              Home
-            </a>
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
 
-            <a
-              href="#courses"
-              className="text-sm font-semibold text-slate-700 hover:text-blue-600"
-            >
-              Courses
-            </a>
+        button {
+          font: inherit;
+        }
 
-            <a
-              href="#features"
-              className="text-sm font-semibold text-slate-700 hover:text-blue-600"
-            >
-              Features
-            </a>
+        .site {
+          min-height: 100vh;
+          overflow: hidden;
+          background:
+            radial-gradient(
+              circle at 85% 5%,
+              rgba(47, 101, 255, 0.13),
+              transparent 28%
+            ),
+            radial-gradient(
+              circle at 5% 35%,
+              rgba(157, 78, 221, 0.08),
+              transparent 25%
+            ),
+            #f7f9fc;
+        }
 
-            <a
-              href="#community"
-              className="text-sm font-semibold text-slate-700 hover:text-blue-600"
-            >
-              Community
-            </a>
-          </div>
+        .container {
+          width: min(1180px, calc(100% - 40px));
+          margin: auto;
+        }
 
-          <div className="hidden items-center gap-3 md:flex">
-            <button className="rounded-xl px-5 py-2.5 text-sm font-bold text-slate-700 hover:bg-slate-100">
-              Login
-            </button>
+        /* NAVBAR */
 
-            <button className="rounded-xl bg-slate-950 px-5 py-2.5 text-sm font-bold text-white shadow-lg hover:bg-blue-700">
-              Get Started
-            </button>
-          </div>
+        .nav-wrap {
+          position: sticky;
+          top: 0;
+          z-index: 50;
+          padding: 14px 0;
+          background: rgba(247, 249, 252, 0.78);
+          backdrop-filter: blur(20px);
+          border-bottom: 1px solid rgba(7, 21, 47, 0.06);
+        }
 
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="rounded-xl p-2 md:hidden"
-            aria-label="Open menu"
-          >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+        .nav {
+          height: 68px;
+          padding: 0 18px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border: 1px solid rgba(7, 21, 47, 0.08);
+          border-radius: 20px;
+          background: rgba(255, 255, 255, 0.9);
+          box-shadow: 0 15px 50px rgba(18, 38, 75, 0.08);
+        }
 
-        {menuOpen && (
-          <div className="border-t border-slate-200 bg-white px-5 py-5 md:hidden">
-            <div className="flex flex-col gap-5">
-              <a href="#home" onClick={() => setMenuOpen(false)}>
-                Home
-              </a>
+        .brand {
+          display: flex;
+          align-items: center;
+          gap: 11px;
+          font-weight: 900;
+          font-size: 20px;
+          letter-spacing: -0.7px;
+        }
 
-              <a href="#courses" onClick={() => setMenuOpen(false)}>
-                Courses
-              </a>
+        .brand-logo {
+          width: 39px;
+          height: 39px;
+          border-radius: 12px;
+          display: grid;
+          place-items: center;
+          color: white;
+          font-weight: 950;
+          background:
+            linear-gradient(145deg, #0b56ff, #1537d5 55%, #a33cff);
+          box-shadow:
+            0 8px 22px rgba(27, 78, 255, 0.28),
+            inset 0 1px rgba(255, 255, 255, 0.4);
+        }
 
-              <a href="#features" onClick={() => setMenuOpen(false)}>
-                Features
-              </a>
+        .brand small {
+          display: block;
+          margin-top: -3px;
+          font-size: 9px;
+          color: #71809a;
+          font-weight: 700;
+          letter-spacing: 1.5px;
+        }
 
-              <a href="#community" onClick={() => setMenuOpen(false)}>
-                Community
-              </a>
+        .links {
+          display: flex;
+          gap: 30px;
+          align-items: center;
+          color: #53617a;
+          font-size: 14px;
+          font-weight: 700;
+        }
 
-              <button className="rounded-xl bg-slate-950 px-5 py-3 font-bold text-white">
-                Get Started
-              </button>
-            </div>
-          </div>
-        )}
-      </nav>
+        .links a:hover {
+          color: #1556ff;
+        }
 
-      {/* HERO */}
-      <section id="home" className="relative min-h-screen pt-20">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.14),transparent_30%),radial-gradient(circle_at_80%_30%,rgba(236,72,153,0.10),transparent_25%)]" />
+        .nav-actions {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
 
-        <div className="mx-auto grid min-h-[calc(100vh-80px)] max-w-7xl items-center gap-10 px-5 py-16 lg:grid-cols-2 lg:px-8">
-          <div className="relative z-10">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-bold text-blue-700">
-              <Sparkles size={16} />
-              The Future of AI Learning
-            </div>
+        .login {
+          padding: 11px 15px;
+          font-size: 14px;
+          font-weight: 800;
+          color: #233250;
+        }
 
-            <h1 className="max-w-4xl text-5xl font-black leading-[1.02] tracking-[-0.04em] sm:text-6xl lg:text-7xl">
-              Learn AI.
-              <br />
-              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-pink-500 bg-clip-text text-transparent">
-                Grow Faster.
-              </span>
-              <br />
-              Earn Smarter.
-            </h1>
+        .nav-cta {
+          border: 0;
+          color: white;
+          padding: 12px 17px;
+          border-radius: 12px;
+          font-weight: 800;
+          background: #0b56ff;
+          box-shadow: 0 8px 22px rgba(11, 86, 255, 0.24);
+        }
 
-            <p className="mt-7 max-w-xl text-lg leading-8 text-slate-600">
-              Learnwealthx is a premium learning and community platform
-              designed to help people learn modern AI skills and build
-              real-world opportunities.
-            </p>
+        /* HERO */
 
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <button className="group flex items-center justify-center gap-2 rounded-2xl bg-blue-600 px-7 py-4 font-bold text-white shadow-xl shadow-blue-600/25 hover:bg-blue-700">
-                Explore Courses
-                <ArrowRight
-                  size={18}
-                  className="transition group-hover:translate-x-1"
-                />
-              </button>
+        .hero {
+          padding: 88px 0 70px;
+          position: relative;
+        }
 
-              <button className="flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-7 py-4 font-bold text-slate-800 shadow-sm hover:border-blue-300">
-                <Play size={17} fill="currentColor" />
-                See How It Works
-              </button>
-            </div>
+        .hero-grid {
+          display: grid;
+          grid-template-columns: 1.05fr 0.95fr;
+          gap: 55px;
+          align-items: center;
+        }
 
-            <div className="mt-10 flex flex-wrap gap-6 text-sm font-semibold text-slate-500">
-              <span className="flex items-center gap-2">
-                <CheckCircle2 size={18} className="text-blue-600" />
-                Practical Learning
-              </span>
+        .eyebrow {
+          width: fit-content;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 8px 12px;
+          border-radius: 999px;
+          color: #1556ff;
+          background: #eaf0ff;
+          border: 1px solid #d7e2ff;
+          font-size: 12px;
+          font-weight: 850;
+          letter-spacing: 0.4px;
+        }
 
-              <span className="flex items-center gap-2">
-                <CheckCircle2 size={18} className="text-blue-600" />
-                Premium Courses
-              </span>
+        .hero h1 {
+          max-width: 720px;
+          margin: 20px 0 20px;
+          font-size: clamp(46px, 6vw, 76px);
+          line-height: 0.98;
+          letter-spacing: -4px;
+          font-weight: 950;
+        }
 
-              <span className="flex items-center gap-2">
-                <CheckCircle2 size={18} className="text-blue-600" />
-                Community
-              </span>
-            </div>
-          </div>
+        .gradient-text {
+          background: linear-gradient(
+            100deg,
+            #0b56ff 0%,
+            #4268ff 45%,
+            #a23ce8 100%
+          );
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+        }
 
-          <div className="relative h-[480px] lg:h-[650px]">
-            <Hero3D />
-          </div>
-        </div>
-      </section>
+        .hero p {
+          max-width: 630px;
+          margin: 0;
+          color: #60708b;
+          font-size: 18px;
+          line-height: 1.75;
+        }
 
-      {/* STATS */}
-      <section className="border-y border-slate-200 bg-slate-50">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-slate-200 lg:grid-cols-4">
-          <div className="px-5 py-8 text-center">
-            <div className="text-xl font-black">AI Skills</div>
-            <div className="mt-1 text-sm text-slate-500">
-              Learn modern skills
-            </div>
-          </div>
+        .hero-buttons {
+          display: flex;
+          gap: 13px;
+          margin-top: 30px;
+          flex-wrap: wrap;
+        }
 
-          <div className="px-5 py-8 text-center">
-            <div className="text-xl font-black">Courses</div>
-            <div className="mt-1 text-sm text-slate-500">
-              Practical education
-            </div>
-          </div>
+        .primary-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 9px;
+          padding: 15px 20px;
+          border-radius: 13px;
+          color: white;
+          background: #0b56ff;
+          font-weight: 850;
+          box-shadow: 0 14px 30px rgba(11, 86, 255, 0.25);
+        }
 
-          <div className="px-5 py-8 text-center">
-            <div className="text-xl font-black">Community</div>
-            <div className="mt-1 text-sm text-slate-500">
-              Connect & grow
-            </div>
-          </div>
+        .secondary-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 9px;
+          padding: 15px 20px;
+          border-radius: 13px;
+          color: #182744;
+          background: white;
+          border: 1px solid #dfe5ef;
+          font-weight: 850;
+        }
 
-          <div className="px-5 py-8 text-center">
-            <div className="text-xl font-black">Earning</div>
-            <div className="mt-1 text-sm text-slate-500">
-              Build opportunities
-            </div>
-          </div>
-        </div>
-      </section>
+        .hero-note {
+          display: flex;
+          gap: 18px;
+          margin-top: 25px;
+          color: #76839a;
+          font-size: 12px;
+          font-weight: 700;
+        }
 
-      {/* COURSES */}
-      <section id="courses" className="mx-auto max-w-7xl px-5 py-24 lg:px-8">
-        <div className="max-w-2xl">
-          <div className="text-sm font-black uppercase tracking-[0.2em] text-blue-600">
-            Learn
-          </div>
+        /* 3D CARD */
 
-          <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
-            Build skills that matter.
-          </h2>
+        .visual {
+          min-height: 500px;
+          position: relative;
+          display: grid;
+          place-items: center;
+          perspective: 1200px;
+        }
 
-          <p className="mt-5 text-lg leading-8 text-slate-600">
-            Premium courses designed around practical AI skills and modern
-            digital workflows.
-          </p>
-        </div>
-
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          {courses.map((course) => {
-            const Icon = course.icon;
-
-            return (
-              <article
-                key={course.title}
-                className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
-              >
-                <div className="absolute right-0 top-0 h-32 w-32 rounded-full bg-blue-100 blur-3xl" />
-
-                <div className="relative">
-                  <div className="flex items-center justify-between">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600">
-                      <Icon size={28} />
-                    </div>
-
-                    <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-600">
-                      {course.tag}
-                    </span>
-                  </div>
-
-                  <h3 className="mt-8 text-2xl font-black">{course.title}</h3>
-
-                  <p className="mt-3 min-h-20 leading-7 text-slate-600">
-                    {course.description}
-                  </p>
-
-                  <button className="mt-7 flex items-center gap-2 font-bold text-blue-600">
-                    View Course
-                    <ChevronRight size={18} />
-                  </button>
-                </div>
-              </article>
+        .orb {
+          position: absolute;
+          width: 380px;
+          height: 380px;
+          border-radius: 50%;
+          background:
+            radial-gradient(
+              circle at 35% 28%,
+              rgba(255, 255, 255, 0.95),
+              rgba(88, 123, 255, 0.72) 22%,
+              rgba(22, 73, 255, 0.22) 48%,
+              transparent 70%
             );
-          })}
-        </div>
-      </section>
+          filter: blur(2px);
+          animation: float 6s ease-in-out infinite;
+        }
 
-      {/* FEATURES */}
-      <section id="features" className="bg-slate-950 py-24 text-white">
-        <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-2 lg:px-8">
-          <div>
-            <div className="text-sm font-black uppercase tracking-[0.2em] text-blue-400">
-              One Platform
-            </div>
+        .dashboard-card {
+          position: relative;
+          width: min(455px, 92%);
+          min-height: 365px;
+          padding: 20px;
+          border-radius: 28px;
+          background:
+            linear-gradient(
+              145deg,
+              rgba(255, 255, 255, 0.98),
+              rgba(237, 243, 255, 0.93)
+            );
+          border: 1px solid rgba(255, 255, 255, 0.9);
+          box-shadow:
+            0 35px 80px rgba(28, 52, 105, 0.18),
+            0 10px 30px rgba(30, 73, 180, 0.08);
+          transform: rotateY(-9deg) rotateX(5deg);
+          animation: cardFloat 6s ease-in-out infinite;
+        }
 
-            <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
-              Everything you need to
-              <span className="text-blue-400"> learn & grow.</span>
-            </h2>
+        .dash-top {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 22px;
+        }
 
-            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-400">
-              Learnwealthx combines education, community, profiles and future
-              earning tools into one connected experience.
-            </p>
+        .dash-title {
+          font-size: 13px;
+          font-weight: 900;
+        }
 
-            <button className="mt-8 flex items-center gap-2 rounded-2xl bg-white px-6 py-3.5 font-bold text-slate-950 hover:bg-blue-50">
-              Explore Platform
-              <ArrowRight size={18} />
-            </button>
-          </div>
+        .live {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          color: #16804a;
+          font-size: 10px;
+          font-weight: 800;
+        }
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            {features.map((feature, index) => {
-              const icons = [
-                Brain,
-                Zap,
-                Users,
-                CircleDollarSign,
-                ShieldCheck,
-                Sparkles,
-              ];
+        .live-dot {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: #18b66a;
+          box-shadow: 0 0 0 5px rgba(24, 182, 106, 0.12);
+        }
 
-              const Icon = icons[index];
+        .progress-box {
+          padding: 18px;
+          border-radius: 20px;
+          background: #09172f;
+          color: white;
+          box-shadow: 0 18px 35px rgba(6, 20, 47, 0.2);
+        }
 
-              return (
-                <div
-                  key={feature}
-                  className="rounded-2xl border border-white/10 bg-white/[0.05] p-5"
-                >
-                  <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/15 text-blue-400">
-                    <Icon size={20} />
-                  </div>
+        .progress-box span {
+          color: #9aabc9;
+          font-size: 11px;
+        }
 
-                  <div className="font-bold">{feature}</div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+        .progress-box strong {
+          display: block;
+          margin-top: 6px;
+          font-size: 27px;
+        }
 
-      {/* COMMUNITY */}
-      <section
-        id="community"
-        className="mx-auto max-w-7xl px-5 py-24 lg:px-8"
-      >
-        <div className="overflow-hidden rounded-[2rem] bg-gradient-to-br from-blue-600 via-indigo-600 to-pink-600 p-8 text-white sm:p-12 lg:p-16">
-          <div className="grid items-center gap-10 lg:grid-cols-2">
-            <div>
-              <div className="flex items-center gap-2 text-sm font-bold text-blue-100">
-                <Users size={18} />
-                LEARNWEALTHX COMMUNITY
-              </div>
+        .progress {
+          height: 7px;
+          margin-top: 17px;
+          border-radius: 99px;
+          background: #243655;
+          overflow: hidden;
+        }
 
-              <h2 className="mt-5 text-4xl font-black tracking-tight sm:text-5xl">
-                Learn together.
-                <br />
-                Grow together.
-              </h2>
+        .progress div {
+          width: 76%;
+          height: 100%;
+          border-radius: inherit;
+          background: linear-gradient(90deg, #2b70ff, #a847ed);
+        }
 
-              <p className="mt-5 max-w-xl text-lg leading-8 text-blue-50">
-                A social learning experience where members can build profiles,
-                share their journey, connect with others and discover new
-                opportunities.
-              </p>
+        .dash-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 10px;
+          margin-top: 13px;
+        }
 
-              <button className="mt-8 rounded-2xl bg-white px-7 py-4 font-black text-slate-950 shadow-xl">
-                Join Learnwealthx
-              </button>
-            </div>
+        .mini {
+          padding: 16px 12px;
+          border-radius: 17px;
+          background: rgba(255, 255, 255, 0.82);
+          border: 1px solid #e1e8f3;
+        }
 
-            <div>
-              <div className="mx-auto max-w-md rounded-3xl border border-white/30 bg-white/10 p-6 shadow-2xl backdrop-blur-xl">
-                <div className="flex items-center gap-4">
-                  <div className="h-14 w-14 rounded-2xl bg-white/20" />
+        .mini svg {
+          color: #1556ff;
+        }
 
-                  <div>
-                    <div className="font-black">Learnwealthx Member</div>
-                    <div className="text-sm text-blue-100">
-                      Verified Profile
-                    </div>
-                  </div>
+        .mini strong {
+          display: block;
+          margin-top: 10px;
+          font-size: 19px;
+        }
 
-                  <div className="ml-auto rounded-full bg-white/20 p-2">
-                    <CheckCircle2 size={18} />
-                  </div>
-                </div>
+        .mini span {
+          color: #75829a;
+          font-size: 10px;
+        }
 
-                <div className="mt-6 grid grid-cols-3 gap-3">
-                  <div className="rounded-2xl bg-white/10 p-4 text-center">
-                    <div className="text-xl font-black">12</div>
-                    <div className="text-xs text-blue-100">Courses</div>
-                  </div>
+        .floating {
+          position: absolute;
+          padding: 14px 17px;
+          display: flex;
+          align-items: center;
+          gap: 11px;
+          border-radius: 16px;
+          background: white;
+          border: 1px solid #e5eaf2;
+          box-shadow: 0 20px 50px rgba(21, 42, 82, 0.14);
+          font-size: 11px;
+          font-weight: 850;
+        }
 
-                  <div className="rounded-2xl bg-white/10 p-4 text-center">
-                    <div className="text-xl font-black">48</div>
-                    <div className="text-xs text-blue-100">Followers</div>
-                  </div>
+        .floating.one {
+          top: 75px;
+          left: 0;
+        }
 
-                  <div className="rounded-2xl bg-white/10 p-4 text-center">
-                    <div className="text-xl font-black">LX</div>
-                    <div className="text-xs text-blue-100">Member</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        .floating.two {
+          right: 0;
+          bottom: 70px;
+        }
 
-      {/* FOOTER */}
-      <footer className="border-t border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-10 sm:flex-row sm:items-center sm:justify-between lg:px-8">
-          <div>
-            <div className="text-xl font-black">
-              Learnwealth<span className="text-blue-600">x</span>
-            </div>
+        .floating-icon {
+          width: 34px;
+          height: 34px;
+          display: grid;
+          place-items: center;
+          border-radius: 11px;
+          background: #edf3ff;
+          color: #1556ff;
+        }
 
-            <div className="mt-1 text-sm text-slate-500">
-              Learn • Grow • Earn
-            </div>
-          </div>
+        /* TRUST */
 
-          <div className="text-sm text-slate-500">
-            © 2026 Learnwealthx. All rights reserved.
-          </div>
-        </div>
-      </footer>
-    </main>
-  );
-}
+        .trust {
+          padding: 20px 0 70px;
+        }
+
+        .trust-box {
+          padding: 25px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 20px;
+          flex-wrap: wrap;
+          border-top: 1px solid #e0e6ef;
+          border-bottom: 1px solid #e0e6ef;
+        }
+
+        .trust-label {
+          color: #8190a8;
+          font-size: 12px;
+          font-weight: 800;
+        }
+
+        .trust-items {
+          display: flex;
+          gap: 35px;
+          color: #33415c;
+          font-weight: 900;
+          opacity: 0.72;
+        }
+
+        /* SECTIONS */
+
+        .section {
+          padding: 95px 0;
+        }
+
+        .section-head {
+          max-width: 700px;
+          margin-bottom: 42px;
+        }
+
+        .section-head span {
+          color: #1556ff;
+          font-size: 12px;
+          font-weight: 900;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+        }
+
+        .section-head h2 {
+          margin: 12px 0;
+          font-size: clamp(34px, 5vw, 52px);
+          line-height: 1.05;
+          letter-spacing: -2.5px;
+        }
+
+        .section-head p {
+          color: #687791;
+          line-height: 1.7;
+          font-size: 16px;
+        }
+
+        .features {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 17px;
+        }
+
+        .feature {
+          padding: 28px;
+          min-height: 230px;
+          border-radius: 24px;
+          background: white;
+          border: 1px solid #e2e8f1;
+          box-shadow: 0 15px 45px rgba(31, 54, 91, 0.05);
+          transition: 0.25s ease;
+        }
+
+        .feature:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 25px 55px rgba(31, 54, 91, 0.1);
+        }
+
+        .feature-icon {
+          width: 48px;
+          height: 48px;
+          display: grid;
+          place-items: center;
+          border-radius: 15px;
+          background: #edf3ff;
+          color: #1556ff;
+        }
+
+        .feature h3 {
+          margin: 24px 0 8px;
+          font-size: 19px;
+        }
+
+        .feature p {
+          margin: 0;
+          color: #728099;
+          line-height: 1.6;
+          font-size: 14px;
+        }
+
+        /* COURSES */
+
+        .courses-section {
+          background: #07152f;
+          color: white;
+          position: relative;
+        }
+
+        .courses-section .section-head p {
+          color: #9aa9c4;
+        }
+
+        .courses-section .section-head span {
+          color: #80a4ff;
+        }
+
+        .courses {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 18px;
+        }
+
+        .course {
+          overflow: hidden;
+          border-radius: 22px;
+          background: #101f3d;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .course-cover {
+          height: 185px;
+          padding: 22px;
+          display: flex;
+          align-items: flex-end;
+          position: relative;
+          background:
+            radial-gradient(
+              circle at 75% 25%,
+              rgba(121, 157, 255, 0.7),
+              transparent 30%
+            ),
+            linear-gradient(135deg, #1556ff, #111d46 70%);
+        }
+
+        .course:nth-child(2) .course-cover {
+          background:
+            radial-gradient(
+              circle at 75% 25%,
+              rgba(234, 77, 255, 0.65),
+              transparent 30%
+            ),
+            linear-gradient(135deg, #4a27b8, #10182f 75%);
+        }
+
+        .course:nth-child(3) .course-cover {
+          background:
+            radial-gradient(
+              circle at 75% 25%,
+              rgba(52, 223, 185, 0.6),
+              transparent 30%
+            ),
+            linear-gradient(135deg, #075d72, #101c35 75%);
+        }
+
+        .course-cover strong {
+          font-size: 24px;
+          letter-spacing: -1px;
+        }
+
+        .course-content {
+          padding: 20px;
+        }
+
+        .course-content h3 {
+          margin: 0 0 8px;
+          font-size: 18px;
+        }
+
+        .course-content p {
+          margin: 0;
+          color: #9aa9c4;
+          font-size: 13px;
+          line-height: 1.6;
+        }
+
+        .course-bottom {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 18px;
+        }
+
+        .course-price {
+          font-weight: 900;
+          font-size: 18px;
+        }
+
+        .course-link {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          color: #86a8ff;
+          font-size: 12px;
+          font-weight: 800;
+        }
+
+        /* EARNING */
+
+        .earning {
+          display: grid;
+          grid-template-columns: 0.9fr 1.1fr;
+          gap: 55px;
+          align-items: center;
+        }
+
+        .earning-card {
+          padding: 25px;
+          border-radius: 26px;
+          background: white;
+          border: 1px solid #e0e7f0;
+          box-shadow: 0 25px 70px rgba(28, 49, 87, 0.09);
+        }
+
+        .earning-top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-bottom: 20px;
+          border-bottom: 1px solid #edf0f5;
+        }
+
+        .earning-top span {
+          color: #77859d;
+          font-size: 12px;
+        }
+
+        .earning-top strong {
+          display: block;
+          margin-top: 7px;
+          font-size: 30px;
+        }
+
+        .verified {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          color: #1556ff;
+          font-size: 11px;
+          font-weight: 800;
+        }
+
+        .earning-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 12px;
+          margin-top: 14px;
+        }
+
+        .earning-stat {
+          padding: 18px;
+          border-radius: 17px;
+          background: #f7f9fc;
+        }
+
+        .earning-stat span {
+          color: #7d8ba2;
+          font-size: 11px;
+        }
+
+        .earning-stat strong {
+          display: block;
+          margin-top: 7px;
+          font-size: 21px;
+        }
+
+        .chart {
+          height: 90px;
+          display: flex;
+          align-items: end;
+          gap: 8px;
+          margin-top: 18px;
+          padding: 12px;
+          border-radius: 16px;
+          background: #f7f9fc;
+        }
+
+        .bar {
+          flex: 1;
+          border-radius: 7px 7px 2px 2px;
+          background: linear-gradient(#1556ff, #8c43e8);
+        }
+
+        .bar:nth-child(1) {
+          height: 35%;
+        }
+
+        .bar:nth-child(2) {
+          height: 52%;
+        }
+
+        .bar:nth-child(3) {
+          height: 45%;
+        }
+
+        .bar:nth-child(4) {
+          height: 68%;
+        }
+
+        .bar:nth-child(5) {
+          height: 60%;
+        }
+
+        .bar:nth-child(6) {
+          height: 82%;
+        }
+
+        .bar:nth-child(7) {
+          height: 94%;
+        }
+
+        .check-list {
+          display: grid;
+          gap: 14px;
+          margin-top: 28px;
+        }
+
+        .check {
+          display: flex;
+          gap: 10px;
+          color: #52627d;
+          font-size: 14px;
+          line-height: 1.5;
+        }
+
+        .check svg {
+          flex: 0 0 auto;
+          color: #1556ff;
+        }
+
+        /* COMMUNITY */
+
+        .community {
+          padding: 80px 0;
+        }
+
+        .community-box {
+          padding: 55px;
+          border-radius: 32px;
+          color: white;
+          position: relative;
+          overflow: hidden;
+          background:
+            radial-gradient(
+              circle at 85% 20%,
+              rgba(157, 70, 255, 0.55),
+              transparent 28%
+            ),
+            radial-gradient(
+              circle at 15% 80%,
+              rgba(24, 99, 255, 0.5),
+              transparent 30%
+            ),
+            #081631;
+        }
+
+        .community-box h2 {
+          max-width: 680px;
+          margin: 0;
+          font-size: clamp(35px, 5vw, 57px);
+          line-height: 1.03;
+          letter-spacing: -2.5px;
+        }
+
+        .community-box p {
+          max-width: 600px;
+          color: #a6b4cd;
+          line-height: 1.7;
+        }
+
+        .community-pills {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-top: 25px;
+        }
+
+        .pill {
+          display: flex;
+          align-items: center;
+          gap: 7px;
+          padding: 10px 13px;
+          border-radius: 999px;
+          background: rgba(255, 255, 255, 0.07);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          color: #dce5f5;
+          font-size: 12px;
+          font-weight: 750;
+        }
+
+        /* FOOTER */
+
+        footer {
+          padding: 55px 0 30px;
+          background: white;
+          border-top: 1px solid #e3e8f0;
+        }
+
+        .footer-grid {
+          display: grid;
+          grid-template-columns: 1.5fr repeat(3, 1fr);
+          gap: 40px;
+        }
+
+        .footer-title {
+          margin-bottom: 14px;
+          font-size: 13px;
+          font-weight: 900;
+        }
+
+        .footer-links {
+          display: grid;
+          gap: 9px;
+          color: #718098;
+          font-size: 12px;
+        }
+
+        .footer-about {
+          max-width: 300px;
+          color: #718098;
+          line-height: 1.7;
+          font-size: 13px;
+        }
+
+        .copyright {
+          margin-top: 45px;
+          padding-top: 20px;
+          border-top: 1px solid #edf0f4;
+          color: #8a96a9;
+          font-size: 11px;
+          display: flex;
+          justify-content: space-between;
+          gap: 15px;
+        }
+
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-18px);
+          }
+        }
+
+        @keyframes cardFloat {
+          0%,
+          100% {
+            transform: rotateY(-9deg) rotateX(5deg) translateY(0);
+          }
+          50% {
+            transform: rotateY(-5deg) rotateX(3deg) translateY(-12px);
+          }
