@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import {
   ArrowRight,
   Brain,
@@ -15,24 +14,28 @@ import {
   X,
   Zap,
 } from "lucide-react";
+import { useState } from "react";
 import Hero3D from "./components/Hero3D";
 
 const courses = [
   {
     title: "AI Mastery",
-    description: "Learn practical AI tools and workflows from beginner to advanced.",
+    description:
+      "Learn practical AI tools and workflows from beginner to advanced.",
     icon: Brain,
     tag: "Most Popular",
   },
   {
     title: "AI Content Creation",
-    description: "Create professional content, graphics and videos using AI.",
+    description:
+      "Create professional content, graphics and videos using AI.",
     icon: Sparkles,
     tag: "Trending",
   },
   {
     title: "AI Earning Skills",
-    description: "Learn digital skills that can be used to build online income streams.",
+    description:
+      "Learn digital skills that can be used to build online income streams.",
     icon: CircleDollarSign,
     tag: "New",
   },
@@ -53,10 +56,10 @@ export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-white text-slate-950">
       {/* NAVBAR */}
-      <nav className="fixed left-0 right-0 top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur-xl">
+      <nav className="fixed left-0 right-0 top-0 z-50 border-b border-slate-200/70 bg-white/90 backdrop-blur-xl">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
-          <a href="#" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-400 text-lg font-black text-white shadow-lg shadow-blue-500/25">
+          <a href="#home" className="flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-400 text-lg font-black text-white shadow-lg">
               LX
             </div>
 
@@ -64,6 +67,7 @@ export default function Home() {
               <div className="text-xl font-black tracking-tight">
                 Learnwealth<span className="text-blue-600">x</span>
               </div>
+
               <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">
                 Learn • Grow • Earn
               </div>
@@ -71,16 +75,31 @@ export default function Home() {
           </a>
 
           <div className="hidden items-center gap-8 md:flex">
-            <a href="#home" className="text-sm font-semibold text-slate-700 hover:text-blue-600">
+            <a
+              href="#home"
+              className="text-sm font-semibold text-slate-700 hover:text-blue-600"
+            >
               Home
             </a>
-            <a href="#courses" className="text-sm font-semibold text-slate-700 hover:text-blue-600">
+
+            <a
+              href="#courses"
+              className="text-sm font-semibold text-slate-700 hover:text-blue-600"
+            >
               Courses
             </a>
-            <a href="#features" className="text-sm font-semibold text-slate-700 hover:text-blue-600">
+
+            <a
+              href="#features"
+              className="text-sm font-semibold text-slate-700 hover:text-blue-600"
+            >
               Features
             </a>
-            <a href="#community" className="text-sm font-semibold text-slate-700 hover:text-blue-600">
+
+            <a
+              href="#community"
+              className="text-sm font-semibold text-slate-700 hover:text-blue-600"
+            >
               Community
             </a>
           </div>
@@ -89,6 +108,7 @@ export default function Home() {
             <button className="rounded-xl px-5 py-2.5 text-sm font-bold text-slate-700 hover:bg-slate-100">
               Login
             </button>
+
             <button className="rounded-xl bg-slate-950 px-5 py-2.5 text-sm font-bold text-white shadow-lg hover:bg-blue-700">
               Get Started
             </button>
@@ -97,19 +117,31 @@ export default function Home() {
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="rounded-xl p-2 md:hidden"
-            aria-label="Toggle menu"
+            aria-label="Open menu"
           >
-            {menuOpen ? <X /> : <Menu />}
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {menuOpen && (
           <div className="border-t border-slate-200 bg-white px-5 py-5 md:hidden">
-            <div className="flex flex-col gap-4">
-              <a href="#home" onClick={() => setMenuOpen(false)}>Home</a>
-              <a href="#courses" onClick={() => setMenuOpen(false)}>Courses</a>
-              <a href="#features" onClick={() => setMenuOpen(false)}>Features</a>
-              <a href="#community" onClick={() => setMenuOpen(false)}>Community</a>
+            <div className="flex flex-col gap-5">
+              <a href="#home" onClick={() => setMenuOpen(false)}>
+                Home
+              </a>
+
+              <a href="#courses" onClick={() => setMenuOpen(false)}>
+                Courses
+              </a>
+
+              <a href="#features" onClick={() => setMenuOpen(false)}>
+                Features
+              </a>
+
+              <a href="#community" onClick={() => setMenuOpen(false)}>
+                Community
+              </a>
+
               <button className="rounded-xl bg-slate-950 px-5 py-3 font-bold text-white">
                 Get Started
               </button>
@@ -140,15 +172,18 @@ export default function Home() {
             </h1>
 
             <p className="mt-7 max-w-xl text-lg leading-8 text-slate-600">
-              Learnwealthx is building a premium learning and community platform
-              designed to help people learn modern AI skills and turn knowledge
-              into real-world opportunities.
+              Learnwealthx is a premium learning and community platform
+              designed to help people learn modern AI skills and build
+              real-world opportunities.
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <button className="group flex items-center justify-center gap-2 rounded-2xl bg-blue-600 px-7 py-4 font-bold text-white shadow-xl shadow-blue-600/25 transition hover:-translate-y-1 hover:bg-blue-700">
+              <button className="group flex items-center justify-center gap-2 rounded-2xl bg-blue-600 px-7 py-4 font-bold text-white shadow-xl shadow-blue-600/25 hover:bg-blue-700">
                 Explore Courses
-                <ArrowRight size={18} className="transition group-hover:translate-x-1" />
+                <ArrowRight
+                  size={18}
+                  className="transition group-hover:translate-x-1"
+                />
               </button>
 
               <button className="flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-7 py-4 font-bold text-slate-800 shadow-sm hover:border-blue-300">
@@ -159,15 +194,17 @@ export default function Home() {
 
             <div className="mt-10 flex flex-wrap gap-6 text-sm font-semibold text-slate-500">
               <span className="flex items-center gap-2">
-                <CheckCircle2 className="text-blue-600" size={18} />
+                <CheckCircle2 size={18} className="text-blue-600" />
                 Practical Learning
               </span>
+
               <span className="flex items-center gap-2">
-                <CheckCircle2 className="text-blue-600" size={18} />
+                <CheckCircle2 size={18} className="text-blue-600" />
                 Premium Courses
               </span>
+
               <span className="flex items-center gap-2">
-                <CheckCircle2 className="text-blue-600" size={18} />
+                <CheckCircle2 size={18} className="text-blue-600" />
                 Community
               </span>
             </div>
@@ -182,17 +219,33 @@ export default function Home() {
       {/* STATS */}
       <section className="border-y border-slate-200 bg-slate-50">
         <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-slate-200 lg:grid-cols-4">
-          {[
-            ["AI Skills", "Learn modern skills"],
-            ["Courses", "Practical education"],
-            ["Community", "Connect & grow"],
-            ["Earning", "Build opportunities"],
-          ].map(([number, label]) => (
-            <div key={number} className="px-5 py-8 text-center">
-              <div className="text-xl font-black text-slate-950">{number}</div>
-              <div className="mt-1 text-sm text-slate-500">{label}</div>
+          <div className="px-5 py-8 text-center">
+            <div className="text-xl font-black">AI Skills</div>
+            <div className="mt-1 text-sm text-slate-500">
+              Learn modern skills
             </div>
-          ))}
+          </div>
+
+          <div className="px-5 py-8 text-center">
+            <div className="text-xl font-black">Courses</div>
+            <div className="mt-1 text-sm text-slate-500">
+              Practical education
+            </div>
+          </div>
+
+          <div className="px-5 py-8 text-center">
+            <div className="text-xl font-black">Community</div>
+            <div className="mt-1 text-sm text-slate-500">
+              Connect & grow
+            </div>
+          </div>
+
+          <div className="px-5 py-8 text-center">
+            <div className="text-xl font-black">Earning</div>
+            <div className="mt-1 text-sm text-slate-500">
+              Build opportunities
+            </div>
+          </div>
         </div>
       </section>
 
@@ -202,9 +255,11 @@ export default function Home() {
           <div className="text-sm font-black uppercase tracking-[0.2em] text-blue-600">
             Learn
           </div>
+
           <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
             Build skills that matter.
           </h2>
+
           <p className="mt-5 text-lg leading-8 text-slate-600">
             Premium courses designed around practical AI skills and modern
             digital workflows.
@@ -220,7 +275,7 @@ export default function Home() {
                 key={course.title}
                 className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
               >
-                <div className="absolute right-0 top-0 h-32 w-32 rounded-full bg-blue-100 blur-3xl transition group-hover:bg-pink-100" />
+                <div className="absolute right-0 top-0 h-32 w-32 rounded-full bg-blue-100 blur-3xl" />
 
                 <div className="relative">
                   <div className="flex items-center justify-between">
@@ -275,36 +330,40 @@ export default function Home() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            {features.map((feature, index) => (
-              <div
-                key={feature}
-                className="rounded-2xl border border-white/10 bg-white/[0.05] p-5 backdrop-blur"
-              >
-                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/15 text-blue-400">
-                  {index === 0 ? (
-                    <Brain size={20} />
-                  ) : index === 1 ? (
-                    <Zap size={20} />
-                  ) : index === 2 ? (
-                    <Users size={20} />
-                  ) : index === 3 ? (
-                    <CircleDollarSign size={20} />
-                  ) : index === 4 ? (
-                    <ShieldCheck size={20} />
-                  ) : (
-                    <Sparkles size={20} />
-                  )}
-                </div>
+            {features.map((feature, index) => {
+              const icons = [
+                Brain,
+                Zap,
+                Users,
+                CircleDollarSign,
+                ShieldCheck,
+                Sparkles,
+              ];
 
-                <div className="font-bold">{feature}</div>
-              </div>
-            ))}
+              const Icon = icons[index];
+
+              return (
+                <div
+                  key={feature}
+                  className="rounded-2xl border border-white/10 bg-white/[0.05] p-5"
+                >
+                  <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/15 text-blue-400">
+                    <Icon size={20} />
+                  </div>
+
+                  <div className="font-bold">{feature}</div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* COMMUNITY */}
-      <section id="community" className="mx-auto max-w-7xl px-5 py-24 lg:px-8">
+      <section
+        id="community"
+        className="mx-auto max-w-7xl px-5 py-24 lg:px-8"
+      >
         <div className="overflow-hidden rounded-[2rem] bg-gradient-to-br from-blue-600 via-indigo-600 to-pink-600 p-8 text-white sm:p-12 lg:p-16">
           <div className="grid items-center gap-10 lg:grid-cols-2">
             <div>
@@ -330,14 +389,18 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="relative">
+            <div>
               <div className="mx-auto max-w-md rounded-3xl border border-white/30 bg-white/10 p-6 shadow-2xl backdrop-blur-xl">
                 <div className="flex items-center gap-4">
                   <div className="h-14 w-14 rounded-2xl bg-white/20" />
+
                   <div>
                     <div className="font-black">Learnwealthx Member</div>
-                    <div className="text-sm text-blue-100">Verified Profile</div>
+                    <div className="text-sm text-blue-100">
+                      Verified Profile
+                    </div>
                   </div>
+
                   <div className="ml-auto rounded-full bg-white/20 p-2">
                     <CheckCircle2 size={18} />
                   </div>
@@ -348,10 +411,12 @@ export default function Home() {
                     <div className="text-xl font-black">12</div>
                     <div className="text-xs text-blue-100">Courses</div>
                   </div>
+
                   <div className="rounded-2xl bg-white/10 p-4 text-center">
                     <div className="text-xl font-black">48</div>
                     <div className="text-xs text-blue-100">Followers</div>
                   </div>
+
                   <div className="rounded-2xl bg-white/10 p-4 text-center">
                     <div className="text-xl font-black">LX</div>
                     <div className="text-xs text-blue-100">Member</div>
@@ -364,21 +429,23 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-<footer className="border-t border-slate-200 bg-white">
-  <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-10 sm:flex-row sm:items-center sm:justify-between lg:px-8">
-    <div>
-      <div className="text-xl font-black">
-        Learnwealth<span className="text-blue-600">x</span>
-      </div>
+      <footer className="border-t border-slate-200 bg-white">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-10 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+          <div>
+            <div className="text-xl font-black">
+              Learnwealth<span className="text-blue-600">x</span>
+            </div>
 
-      <div className="mt-1 text-sm text-slate-500">
-        Learn • Grow • Earn
-      </div>
-    </div>
+            <div className="mt-1 text-sm text-slate-500">
+              Learn • Grow • Earn
+            </div>
+          </div>
 
-    <div className="text-sm text-slate-500">
-      © 2026 Learnwealthx. All rights reserved.
-    </div>
-  </div>
-</footer>
+          <div className="text-sm text-slate-500">
+            © 2026 Learnwealthx. All rights reserved.
+          </div>
+        </div>
+      </footer>
     </main>
+  );
+}
