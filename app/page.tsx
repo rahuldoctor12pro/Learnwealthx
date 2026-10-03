@@ -364,5 +364,21 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py
+<footer className="border-t border-slate-200 bg-white">
+  <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-10 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+    <div>
+      <div className="text-xl font-black">
+        Learnwealth<span className="text-blue-600">x</span>
+      </div>
+
+      <div className="mt-1 text-sm text-slate-500">
+        Learn • Grow • Earn
+      </div>
+    </div>
+
+    <div className="text-sm text-slate-500">
+      © 2026 Learnwealthx. All rights reserved.
+    </div>
+  </div>
+</footer>
+    </main>
